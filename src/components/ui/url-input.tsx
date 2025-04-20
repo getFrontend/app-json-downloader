@@ -65,7 +65,7 @@ const UrlInput = React.forwardRef<HTMLTextAreaElement, UrlInputProps>(
               "bg-white/10 backdrop-blur-md border-white/20 min-h-[100px] resize-y",
               className
             )}
-            placeholder="Enter URL JSON files (one per line)"
+            placeholder="Enter JSON urls (one per line)"
             required
             {...props}
             ref={ref}
