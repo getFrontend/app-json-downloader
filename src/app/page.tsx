@@ -7,6 +7,7 @@ import { UrlInput } from "@/components/ui/url-input"
 import { JsonPreview } from "@/components/ui/json-preview"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
 import { fetchJson, saveFile } from "@/lib/jsonUtils"
+import Image from "next/image"
 
 interface JsonItem {
   url: string
@@ -69,8 +70,11 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white p-4">
       <div className="max-w-4xl mx-auto">
         <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-            JSONeo
+          <h1 className="flex items-center gap-2">
+            <Image src="/images/jsoneo-logo.png" alt="JSONeo logo" width={42} height={42} />
+            <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+              JSONeo
+            </span>
           </h1>
           <ThemeToggle />
         </div>
