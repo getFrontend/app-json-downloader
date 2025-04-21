@@ -6,6 +6,7 @@ import { Toaster } from "sonner"
 import { UrlInput } from "@/components/ui/url-input"
 import { JsonPreview } from "@/components/ui/json-preview"
 import { ThemeToggle } from "@/components/ui/theme-toggle"
+import { Footer } from "@/components/ui/footer"
 import { fetchJson, saveFile } from "@/lib/jsonUtils"
 import Image from "next/image"
 
@@ -67,8 +68,8 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white p-4">
-      <div className="max-w-4xl mx-auto">
+    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white p-4 flex flex-col">
+      <div className="max-w-4xl mx-auto w-full flex-1">
         <div className="flex justify-between items-center mb-8">
           <h1 className="flex items-center gap-2">
             <Image src="/images/jsoneo-logo.png" alt="JSONeo logo" width={42} height={42} />
@@ -98,7 +99,9 @@ export default function Home() {
             </AnimatePresence>
           </div>
         </div>
+        
       </div>
+      <Footer />
       <Toaster position="top-right" />
     </main>
   )
