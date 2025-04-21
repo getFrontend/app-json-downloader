@@ -11,14 +11,18 @@ export function ThemeToggle() {
     // Check saved theme on component mount
     const savedTheme = localStorage.getItem('theme') || 'dark'
     setTheme(savedTheme as 'light' | 'dark')
-    document.documentElement.classList.toggle('light', savedTheme === 'light')
+    
+    // Apply the dark class to the document element if theme is dark
+    document.documentElement.classList.toggle('dark', savedTheme === 'dark')
   }, [])
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light'
     setTheme(newTheme)
     localStorage.setItem('theme', newTheme)
-    document.documentElement.classList.toggle('light', newTheme === 'light')
+    
+    // Toggle the 'dark' class on the document element
+    document.documentElement.classList.toggle('dark', newTheme === 'dark')
   }
 
   return (
