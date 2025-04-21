@@ -9,17 +9,17 @@ export function Footer() {
 
   return (
     <motion.footer 
-      className="max-w-4xl mx-auto w-full p-4 border-t border-white/10 text-center text-white/60 flex items-center justify-between gap-2"
+      className="max-w-4xl mx-auto w-full p-4 border-t border-white/10 text-center flex items-center justify-between gap-2"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
     >
-        <p className="text-sm">© {currentYear} - JSONeo by <span className="text-secondary">Sergey</span></p>
+        <p className="text-sm text-theme-muted">© {currentYear} - JSONeo by <span className="text-secondary">Sergey</span></p>
         <motion.a
           href="https://github.com/getFrontend"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 hover:text-white transition-colors"
+          className="flex items-center gap-1 rounded-full p-2 hover:bg-white/20 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

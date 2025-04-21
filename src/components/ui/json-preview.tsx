@@ -27,17 +27,17 @@ const JsonPreview = React.forwardRef<HTMLDivElement, JsonPreviewProps>(
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20"
+        className="bg-theme-card backdrop-theme rounded-lg p-4 border border-theme"
       >
         <div className="flex items-center justify-between mb-4">
           <div className="flex-1 truncate mr-2">
-            <p className="text-sm text-white/80 truncate">{url}</p>
+            <p className="text-sm text-theme-text truncate">{url}</p>
           </div>
           <Button
             variant="ghost"
             size="icon"
             onClick={onRemove}
-            className="hover:bg-white/10"
+            className="hover-theme"
           >
             <X className="h-4 w-4" />
           </Button>
@@ -45,7 +45,7 @@ const JsonPreview = React.forwardRef<HTMLDivElement, JsonPreviewProps>(
 
         {isLoading ? (
           <div className="flex items-center justify-center h-32">
-            <Loader2 className="h-8 w-8 animate-spin text-white/50" />
+            <Loader2 className="h-8 w-8 animate-spin text-theme-muted" />
           </div>
         ) : error ? (
           <div className="text-red-400 text-sm">{error}</div>
@@ -56,14 +56,14 @@ const JsonPreview = React.forwardRef<HTMLDivElement, JsonPreviewProps>(
                 type="text"
                 value={filename}
                 onChange={(e) => setFilename(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded px-2 py-1 text-sm mb-2"
+                className="w-full bg-theme-input border border-theme rounded px-2 py-1 text-sm mb-2"
                 placeholder="File name"
               />
             </div>
-            <pre className="bg-black/20 rounded p-2 text-sm overflow-auto max-h-40 mb-4">
+            <pre className="bg-black/5 dark:bg-black/30 rounded p-2 text-sm overflow-auto max-h-40 mb-4">
               {data.split("\n").slice(0, 10).join("\n")}
               {data.split("\n").length > 10 && (
-                <span className="text-white/50">{"\n..."}</span>
+                <span className="text-theme-muted">{"\n..."}</span>
               )}
             </pre>
             <Button

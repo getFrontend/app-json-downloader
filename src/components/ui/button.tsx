@@ -6,13 +6,13 @@ import { motion, HTMLMotionProps } from "framer-motion"
 const buttonVariants = {
   base: "inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50",
   variants: {
-    default: "bg-white/10 text-white hover:bg-white/20",
+    default: "bg-white/10 text-theme-text hover:bg-white/20 border button-border-theme",
     destructive: "bg-red-500/10 text-red-500 hover:bg-red-500/20",
-    outline: "border border-white/20 hover:bg-white/10",
-    secondary: "bg-white/5 text-white hover:bg-white/10",
+    outline: "border button-border-theme hover:bg-white/10",
+    secondary: "bg-white/5 text-theme-text hover:bg-white/10",
     ghost: "hover:bg-white/10",
-    link: "text-white underline-offset-4 hover:underline",
-    glass: "bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20",
+    link: "text-theme-text underline-offset-4 hover:underline",
+    glass: "button-bg-theme backdrop-blur-md border button-border-theme",
   },
   sizes: {
     default: "h-9 px-4 py-2",
@@ -50,4 +50,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 Button.displayName = "Button"
 
-export { Button, buttonVariants } 
+export { Button, buttonVariants }

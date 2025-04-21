@@ -68,7 +68,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-gray-900 to-black text-white p-4 flex flex-col">
+    <main className="min-h-screen bg-theme-gradient text-theme-text p-4 flex flex-col">
       <div className="max-w-4xl mx-auto w-full flex-1">
         <div className="flex justify-between items-center mb-8">
           <h1 className="flex items-center gap-2">

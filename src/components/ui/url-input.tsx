@@ -61,8 +61,8 @@ const UrlInput = React.forwardRef<HTMLTextAreaElement, UrlInputProps>(
             value={urls}
             onChange={(e) => setUrls(e.target.value)}
             className={cn(
-              "flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
-              "bg-white/10 backdrop-blur-md border-white/20 min-h-[100px] resize-y",
+              "flex w-full rounded-md border px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+              "bg-theme-input backdrop-theme border-theme min-h-[100px] resize-y",
               className
             )}
             placeholder="Enter JSON urls (one per line)"
@@ -74,7 +74,7 @@ const UrlInput = React.forwardRef<HTMLTextAreaElement, UrlInputProps>(
             <motion.button
               type="button"
               onClick={() => setUrls("")}
-              className="absolute right-2 top-2 p-1 rounded-full hover:bg-white/10"
+              className="absolute right-2 top-2 p-1 rounded-full hover-theme"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -83,7 +83,7 @@ const UrlInput = React.forwardRef<HTMLTextAreaElement, UrlInputProps>(
           )}
         </div>
         <div className="flex justify-between items-center">
-          <div className="text-sm text-white/60">
+          <div className="text-sm text-theme-muted">
             {urls.split('\n').filter(url => url.trim().length > 0).length} URL{urls.split('\n').filter(url => url.trim().length > 0).length !== 1 ? 's' : ''}
           </div>
           <Button
@@ -111,4 +111,4 @@ const UrlInput = React.forwardRef<HTMLTextAreaElement, UrlInputProps>(
 
 UrlInput.displayName = "UrlInput"
 
-export { UrlInput } 
+export { UrlInput }
