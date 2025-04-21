@@ -1,29 +1,29 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Moon, Sun } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import * as React from "react";
+import { Moon, Sun } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = React.useState<'light' | 'dark'>('dark')
+  const [theme, setTheme] = React.useState<"light" | "dark">("dark");
 
   React.useEffect(() => {
     // Check saved theme on component mount
-    const savedTheme = localStorage.getItem('theme') || 'dark'
-    setTheme(savedTheme as 'light' | 'dark')
-    
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    setTheme(savedTheme as "light" | "dark");
+
     // Apply the dark class to the document element if theme is dark
-    document.documentElement.classList.toggle('dark', savedTheme === 'dark')
-  }, [])
+    document.documentElement.classList.toggle("dark", savedTheme === "dark");
+  }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
-    
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+
     // Toggle the 'dark' class on the document element
-    document.documentElement.classList.toggle('dark', newTheme === 'dark')
-  }
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+  };
 
   return (
     <motion.button
@@ -40,7 +40,7 @@ export function ThemeToggle() {
           exit={{ opacity: 0, rotate: 30 }}
           transition={{ duration: 0.2 }}
         >
-          {theme === 'light' ? (
+          {theme === "light" ? (
             <Moon className="h-[1.2rem] w-[1.2rem]" />
           ) : (
             <Sun className="h-[1.2rem] w-[1.2rem]" />
@@ -49,5 +49,5 @@ export function ThemeToggle() {
       </AnimatePresence>
       <span className="sr-only">Toggle theme</span>
     </motion.button>
-  )
+  );
 }

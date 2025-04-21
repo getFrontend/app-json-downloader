@@ -1,58 +1,59 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { motion } from "framer-motion"
-import { cn } from "@/lib/utils"
-import { Button } from "./button"
-import { Loader2, Plus, X } from "lucide-react"
-import { toast } from "sonner"
+import * as React from "react";
+import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+import { Button } from "./button";
+import { Loader2, Plus, X } from "lucide-react";
+import { toast } from "sonner";
 
-interface UrlInputProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'onAddUrl'> {
-  onAddUrl: (url: string) => void
-  isLoading?: boolean
+interface UrlInputProps
+  extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "onAddUrl"> {
+  onAddUrl: (url: string) => void;
+  isLoading?: boolean;
 }
 
 const UrlInput = React.forwardRef<HTMLTextAreaElement, UrlInputProps>(
   ({ className, onAddUrl, isLoading, ...props }, ref) => {
-    const [urls, setUrls] = React.useState("")
+    const [urls, setUrls] = React.useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
-      e.preventDefault()
-      
+      e.preventDefault();
+
       // Split text into individual URLs and trim whitespace
       const urlList = urls
-        .split('\n')
-        .map(url => url.trim())
-        .filter(url => url.length > 0)
+        .split("\n")
+        .map((url) => url.trim())
+        .filter((url) => url.length > 0);
 
       if (urlList.length === 0) {
-        toast.error("Enter at least one URL")
-        return
+        toast.error("Enter at least one URL");
+        return;
       }
 
       // Validate that all URLs are valid
-      const invalidUrls = urlList.filter(url => {
+      const invalidUrls = urlList.filter((url) => {
         try {
-          new URL(url)
-          return false
+          new URL(url);
+          return false;
         } catch {
-          return true
+          return true;
         }
-      })
+      });
 
       if (invalidUrls.length > 0) {
-        toast.error(`Found invalid URLs: ${invalidUrls.join(", ")}`)
-        return
+        toast.error(`Found invalid URLs: ${invalidUrls.join(", ")}`);
+        return;
       }
 
       // Add each URL sequentially
-      urlList.forEach(url => {
-        onAddUrl(url)
-      })
+      urlList.forEach((url) => {
+        onAddUrl(url);
+      });
 
       // Clear input field
-      setUrls("")
-    }
+      setUrls("");
+    };
 
     return (
       <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
@@ -84,7 +85,11 @@ const UrlInput = React.forwardRef<HTMLTextAreaElement, UrlInputProps>(
         </div>
         <div className="flex justify-between items-center">
           <div className="text-sm text-theme-muted">
-            {urls.split('\n').filter(url => url.trim().length > 0).length} URL{urls.split('\n').filter(url => url.trim().length > 0).length !== 1 ? 's' : ''}
+            {urls.split("\n").filter((url) => url.trim().length > 0).length} URL
+            {urls.split("\n").filter((url) => url.trim().length > 0).length !==
+            1
+              ? "s"
+              : ""}
           </div>
           <Button
             type="submit"
@@ -105,10 +110,10 @@ const UrlInput = React.forwardRef<HTMLTextAreaElement, UrlInputProps>(
           </Button>
         </div>
       </form>
-    )
+    );
   }
-)
+);
 
-UrlInput.displayName = "UrlInput"
+UrlInput.displayName = "UrlInput";
 
-export { UrlInput }
+export { UrlInput };

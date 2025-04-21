@@ -1,25 +1,25 @@
-import * as React from "react"
-import { motion } from "framer-motion"
-import { Button } from "./button"
-import { Download, Loader2, X } from "lucide-react"
+import * as React from "react";
+import { motion } from "framer-motion";
+import { Button } from "./button";
+import { Download, Loader2, X } from "lucide-react";
 
 interface JsonPreviewProps {
-  url: string
-  data: string
-  error?: string
-  isLoading: boolean
-  onRemove: () => void
-  onDownload: (filename: string) => void
+  url: string;
+  data: string;
+  error?: string;
+  isLoading: boolean;
+  onRemove: () => void;
+  onDownload: (filename: string) => void;
 }
 
 const JsonPreview = React.forwardRef<HTMLDivElement, JsonPreviewProps>(
   ({ url, data, error, isLoading, onRemove, onDownload }, ref) => {
     // Generate a formatted date (YYYY-MM-DD) and random ID for the filename
-    const formattedDate = new Date().toISOString().split('T')[0]
-    const randomId = Math.random().toString(36).substring(2, 5)
+    const formattedDate = new Date().toISOString().split("T")[0];
+    const randomId = Math.random().toString(36).substring(2, 5);
     const [filename, setFilename] = React.useState(
       `jsoneo_${formattedDate}_${randomId}.txt`
-    )
+    );
 
     return (
       <motion.div
@@ -77,10 +77,10 @@ const JsonPreview = React.forwardRef<HTMLDivElement, JsonPreviewProps>(
           </>
         )}
       </motion.div>
-    )
+    );
   }
-)
+);
 
-JsonPreview.displayName = "JsonPreview"
+JsonPreview.displayName = "JsonPreview";
 
-export { JsonPreview }
+export { JsonPreview };
