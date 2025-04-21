@@ -9,7 +9,7 @@ export function Footer() {
 
   return (
     <motion.footer
-      className="max-w-4xl mx-auto w-full p-4 border-t border-white/10 text-center flex items-center justify-between gap-2"
+      className="max-w-4xl mx-auto w-full p-4 border-t border-black/5 dark:border-white/10 text-center flex items-center justify-between gap-2"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
